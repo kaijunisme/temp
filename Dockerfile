@@ -10,6 +10,9 @@ COPY ./target/war_application-1.0-SNAPSHOT.war standalone/deployments/
 # 複製自定義配置（如果需要）
 COPY standalone.xml standalone/configuration/
 
+# 設置模組目錄（本地準備好的模組）
+COPY wildfly-modules/org /opt/jboss/wildfly/modules/system/layers/base/org/
+
 # 開放必要的埠
 EXPOSE 8080 9990
 

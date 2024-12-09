@@ -153,9 +153,24 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:jboss/datasources/PostgresDS" pool-name="PostgresDS" enabled="true">
+                    <connection-url>jdbc:postgresql://postgres:5432/test</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>postgres</user-name>
+                        <password>123456</password>
+                    </security>
+                    <pool>
+                        <min-pool-size>5</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                    </pool>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql">
+                        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                 </drivers>
             </datasources>
